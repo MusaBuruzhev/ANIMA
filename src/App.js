@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import Catalog from './components/Catalog';
+import DetailedCard from './components/DetailedCard';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router> {/* Это корневая обёртка для всего, что связано с роутингом */}
+      <div className="App">
+        <Routes> {/* Это контейнер для всех отдельных правил (Route) */}
+          {/* Правило: для корневого пути '/' показывай компонент HomePage */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="/Catalog" element={<Catalog />} />
+          <Route path="/DetailedCard" element={<DetailedCard />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
+
 
 export default App;
